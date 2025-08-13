@@ -37,19 +37,6 @@ export class Moxie {
     this.applyContainerStyle()
   }
 
-  private applyContainerStyle() {
-    Object.assign(this.container.style, this.style)
-  }
-
-  private ensureClickListener() {
-    const anyOpen = this.state.getState().some(m => m.getVisible())
-    if (anyOpen) {
-      document.addEventListener('click', this.handleDocumentClick.bind(this), true)
-    } else {
-      document.removeEventListener('click', this.handleDocumentClick.bind(this), true)
-    }
-  }
-
   registerModal(name: string, element: Element, props: ModalProps = {}) {
     const existing = this.state.getModal(name)
     if (existing) {
@@ -98,6 +85,19 @@ export class Moxie {
     document.removeEventListener('click', this.handleDocumentClick.bind(this), true)
   }
 
+  private applyContainerStyle() {
+    Object.assign(this.container.style, this.style)
+  }
+
+  private ensureClickListener() {
+    const anyOpen = this.state.getState().some(m => m.getVisible())
+    if (anyOpen) {
+      document.addEventListener('click', this.handleDocumentClick.bind(this), true)
+    } else {
+      document.removeEventListener('click', this.handleDocumentClick.bind(this), true)
+    }
+  }
+
   private handleDocumentClick(e: MouseEvent) {
     const target = e.target as Node
     if (!target) return
@@ -107,7 +107,7 @@ export class Moxie {
 
     const clickedInsideSomeModal = opened.some(m => m.getElement().contains(target))
     const clickedOnContainer = target === this.container
-debugger
+
     if (!clickedInsideSomeModal || clickedOnContainer) {
       this.resetModals()
     }
