@@ -1,17 +1,19 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "allowJs": false,
     "sourceMap": true,
     "removeComments": true,
-    "module": "es2015",
-    "target": "es2018",
+    "module": "esnext",
+    "target": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["dom", "es6", "es7", "esnext"],
-    "jsx": "react",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "declaration": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,20 +23,11 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "types": ["jest"],
-    "typeRoots": ["node_modules/@types"],
-    "paths": {
-      "lib": ["lib"],
-      "examples": ["examples"],
-    }
   },
   "exclude": [
     "node_modules",
     "dist",
   ]
-  
 }

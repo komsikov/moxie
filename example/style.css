@@ -1,0 +1,16 @@
+.moxie-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0 0 0 / 40%);
+}
+
+.modal {
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 40px 32px;
+  background: #9695a1;
+}
